@@ -4,7 +4,7 @@ function updateFieldIfNotNull(fieldName, value, precision = 10) {
 }
 
 function handleMotion(event) {
-  document.getElementById("Gyroscope_z").innerHTML = "motion";
+  document.getElementById("Gyroscope_y").innerHTML = "motion";
   updateFieldIfNotNull("Gyroscope_z", event.rotationRate.alpha);
   updateFieldIfNotNull("Gyroscope_x", event.rotationRate.beta);
   updateFieldIfNotNull("Gyroscope_y", event.rotationRate.gamma);
@@ -14,7 +14,6 @@ let is_running = false;
 let demo_button = document.getElementsByClassName("start_demo");
 
 export default function myClick() {
-  console.log("ddd");
   // e.preventDefault();
 
   // Request permission for iOS 13+ devices
@@ -23,11 +22,11 @@ export default function myClick() {
     typeof DeviceMotionEvent.requestPermission === "function"
   ) {
     DeviceMotionEvent.requestPermission();
-    document.getElementById("Gyroscope_z").innerHTML = "if";
+    document.getElementById("Gyroscope_y").innerHTML = "if";
   }
 
   if (is_running) {
-    document.getElementById("Gyroscope_z").innerHTML = "running";
+    document.getElementById("Gyroscope_y").innerHTML = "running";
     window.removeEventListener("devicemotion", handleMotion());
     demo_button.innerHTML = "Start demo";
 
@@ -35,7 +34,7 @@ export default function myClick() {
     // demo_button.classList.remove("danger");
     is_running = false;
   } else {
-    document.getElementById("Gyroscope_z").innerHTML = "stop running";
+    document.getElementById("Gyroscope_y").innerHTML = "stop running";
     window.addEventListener("devicemotion", handleMotion());
     // document.getElementsByClassName("start_demo").changeText("Stop demo");
     // document.getElementsByClassName("start_demo").innerHTML = "Stop demo";

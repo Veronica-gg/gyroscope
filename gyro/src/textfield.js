@@ -25,8 +25,10 @@ export default function FilledTextFields(props) {
           <TextField
             // required
             id={props.id}
+            className={props.className}
             label="Write here"
-            defaultValue=""
+            value={props.name}
+            onKeyDown={props.onKeyDown}
           />
         </div>
       </Box>
