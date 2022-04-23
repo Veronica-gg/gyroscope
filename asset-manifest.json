@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Veronica-gg/gyroscope.git/static/css/main.09643f19.css",
+    "main.js": "/Veronica-gg/gyroscope.git/static/js/main.435be0a8.js",
+    "static/js/787.3ede2b80.chunk.js": "/Veronica-gg/gyroscope.git/static/js/787.3ede2b80.chunk.js",
+    "index.html": "/Veronica-gg/gyroscope.git/index.html",
+    "main.09643f19.css.map": "/Veronica-gg/gyroscope.git/static/css/main.09643f19.css.map",
+    "main.435be0a8.js.map": "/Veronica-gg/gyroscope.git/static/js/main.435be0a8.js.map",
+    "787.3ede2b80.chunk.js.map": "/Veronica-gg/gyroscope.git/static/js/787.3ede2b80.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09643f19.css",
+    "static/js/main.435be0a8.js"
+  ]
+}
