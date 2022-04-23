@@ -5,10 +5,7 @@ import "./sensor.js";
 import myClick from "./sensor.js";
 import { useState } from "react";
 
-var text = [
-  { demo: "Start demo", value: 0 },
-  { demo: "Stop demo", value: 1 },
-];
+var text = [{ demo: "Start demo" }, { demo: "Stop demo" }];
 var start = 0;
 
 function App() {
