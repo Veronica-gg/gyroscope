@@ -42,7 +42,7 @@ function App() {
         }}
         className="start_demo"
         size="large"
-        onClick={(e, setName) => {
+        onClick={(e) => {
           setButtonText(text[(start + 1) % 2].demo);
           start = (start + 1) % 2;
           myClick(e, setName);

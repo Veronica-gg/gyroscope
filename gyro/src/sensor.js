@@ -5,22 +5,41 @@ function updateFieldIfNotNull(fieldName, value, precision = 0.1) {
     document.getElementById(fieldName).innerHTML = value.toFixed(precision);
 }
 
+let ready = true;
+let speed = 45;
+// let speed = 2.5;
+
+function myTimeout() {
+  ready = false;
+  const timer = setTimeout(() => {
+    ready = true;
+  }, 1000);
+  return () => clearTimeout(timer);
+}
+
 function handleMotion(event) {
+  let sensorReading = event.rotationRate.gamma;
+  // let sensorReading = event.acceleration.x;
   // updateFieldIfNotNull("Gyroscope_z", event.rotationRate.alpha);
   // updateFieldIfNotNull("Gyroscope_x", event.rotationRate.beta);
-  updateFieldIfNotNull("Gyroscope_y", event.rotationRate.gamma);
-  // if (true) {
-  //   stateUpdate(undoFun());
-  //   document.getElementById("Gyroscope_y").innerHTML = "debug";
-  // }
+  updateFieldIfNotNull("Gyroscope_y", sensorReading);
+  if (ready && (sensorReading < -speed || sensorReading > speed)) {
+    myTimeout();
+    if (sensorReading < -speed) {
+      stateUpdate(undoFun());
+      //document.getElementById("Gyroscope_y").innerHTML = "debug";
+    } else if (sensorReading > speed) {
+      stateUpdate(redoFun());
+    }
+  }
 }
 
 let is_running = false;
-// let stateUpdate;
+let stateUpdate;
 
 export default function myClick(e, setName) {
   e.preventDefault();
-  // stateUpdate = setName;
+  stateUpdate = setName;
   // Request permission for iOS 13+ devices
   if (
     DeviceMotionEvent &&
