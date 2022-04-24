@@ -1,7 +1,6 @@
 const undo = [];
 const redo = [];
 var currentWord = "";
-const input = document.getElementsByClassName("textf");
 
 export function saveCommand(e) {
   currentWord = e.target.value;

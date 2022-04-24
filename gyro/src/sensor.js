@@ -27,7 +27,7 @@ export default function myClick() {
 
   if (is_running) {
     document.getElementById("Gyroscope_y").innerHTML = "running";
-    window.removeEventListener("devicemotion", handleMotion());
+    window.removeEventListener("devicemotion", handleMotion);
     demo_button.innerHTML = "Start demo";
 
     // demo_button.classList.add("success");
@@ -35,7 +35,7 @@ export default function myClick() {
     is_running = false;
   } else {
     document.getElementById("Gyroscope_y").innerHTML = "stop running";
-    window.addEventListener("devicemotion", handleMotion());
+    window.addEventListener("devicemotion", handleMotion);
     // document.getElementsByClassName("start_demo").changeText("Stop demo");
     // document.getElementsByClassName("start_demo").innerHTML = "Stop demo";
     // demo_button.className.add("danger");
