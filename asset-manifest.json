@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gyroscope/static/css/main.09643f19.css",
-    "main.js": "/gyroscope/static/js/main.fe24527d.js",
+    "main.js": "/gyroscope/static/js/main.b23a2a00.js",
     "static/js/787.3ede2b80.chunk.js": "/gyroscope/static/js/787.3ede2b80.chunk.js",
     "index.html": "/gyroscope/index.html",
     "main.09643f19.css.map": "/gyroscope/static/css/main.09643f19.css.map",
-    "main.fe24527d.js.map": "/gyroscope/static/js/main.fe24527d.js.map",
+    "main.b23a2a00.js.map": "/gyroscope/static/js/main.b23a2a00.js.map",
     "787.3ede2b80.chunk.js.map": "/gyroscope/static/js/787.3ede2b80.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.09643f19.css",
-    "static/js/main.fe24527d.js"
+    "static/js/main.b23a2a00.js"
   ]
 }
