@@ -37,7 +37,7 @@ function handleMotion(event) {
 let is_running = false;
 let stateUpdate;
 
-export default function myClick(e, setName) {
+export function myClick(e, setName) {
   e.preventDefault();
   stateUpdate = setName;
   // Request permission for iOS 13+ devices

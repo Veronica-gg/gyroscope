@@ -55,3 +55,7 @@ export function redoFun() {
   }
   return word;
 }
+
+export function availableMoves(isUndo) {
+  return isUndo ? undo.length === 0 : redo.length === 0;
+}
