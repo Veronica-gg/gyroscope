@@ -1,4 +1,4 @@
-import { saveCommand, undoFun, emptyRedo, redoFun } from "./undo.js";
+import { undoFun, redoFun } from "./undo.js";
 
 function updateFieldIfNotNull(fieldName, value, precision = 0.1) {
   if (value != null)

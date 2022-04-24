@@ -1,8 +1,10 @@
-# Gyroscope
+# Gyroscope Based Undo and Redo Function for text-entry interface
 
 Text-entry web app that uses gyroscope sensor data to undo and redo actions (letter-wise).
 
 ## Demo
+
+[Video demo](https://www.youtube.com/watch?v=I-ZbCvof7RM&ab_channel=VeronicaGrosso).
 
 ## Implementation
 
@@ -15,6 +17,8 @@ The movement logged is the tilting of the phone along the y-axis (rotationRate.g
 The "Stop demo" button allows the sensor reading to stop.
 
 The web app is deployed on [github-pages](https://veronica-gg.github.io/gyroscope/) and the browser compatibility can be found [here](https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent/rotationRate#browser_compatibility).
+
+Since the motion data is given by a gyroscope sensor, the "Start demo" application works only on devices with such sensor. Most laptops can run the undo and redo functions only through the buttons.
 
 ## Run the code
 
