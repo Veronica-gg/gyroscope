@@ -1,29 +1,58 @@
-const commands = [];
+const undo = [];
+const redo = [];
+var currentWord = "";
 const input = document.getElementsByClassName("textf");
 
 export function saveCommand(e) {
-  commands.push({
-    // the action is also saved for implementing redo, which
-    // is not implemented in this example.
-    action: { type: "add", key: e.key, index: input.selectionStart },
-    inverse: { type: "remove", index: input.selectionStart },
-  });
-  console.log(e.key);
+  currentWord = e.target.value;
+  undo.push(e.target.value);
+}
+
+export function emptyRedo() {
+  redo.length = 0;
 }
 
 export function undoFun() {
-  let value = input[0].value.split("");
-  const lastCommand = commands.pop();
-
-  if (!lastCommand) return;
-
-  switch (lastCommand.inverse.type) {
-    case "remove":
-      value.splice(lastCommand.inverse.index, 1);
-      break;
-    default:
-      break;
+  var word;
+  if (undo.length > 0) {
+    if (currentWord === undo[undo.length - 1]) {
+      redo.push(undo.pop());
+      if (undo.length === 0) {
+        // console.log("undoFunFinal");
+        // console.log("undo: " + undo);
+        // console.log("redo: " + redo);
+        // console.log(currentWord);
+        currentWord = "";
+        return "";
+      }
+    }
+    word = undo[undo.length - 1];
+    currentWord = word;
+    // console.log("undoFun");
+    // console.log("undo: " + undo);
+    // console.log("redo: " + redo);
+    // console.log(currentWord);
+  } else {
+    word = "";
   }
+  return word;
+}
 
-  input[0].value = value.join("");
+export function redoFun() {
+  var word;
+  if (redo.length > 0) {
+    if (currentWord === redo[redo.length - 1]) {
+      undo.push(redo.pop());
+    }
+    word = redo.pop();
+    undo.push(word);
+    currentWord = word;
+    // console.log("redoFun");
+    // console.log("undo: " + undo);
+    // console.log("redo: " + redo);
+    // console.log(currentWord);
+  } else {
+    word = currentWord;
+  }
+  return word;
 }

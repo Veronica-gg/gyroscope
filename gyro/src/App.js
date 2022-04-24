@@ -4,18 +4,18 @@ import "./App.css";
 import FormPropsTextFields from "./textfield.js";
 import "./sensor.js";
 import myClick from "./sensor.js";
-import { saveCommand, undoFun } from "./undo.js";
+import { saveCommand, undoFun, emptyRedo, redoFun } from "./undo.js";
 import { useState } from "react";
+import { Row } from "react-bootstrap";
 
 var text = [{ demo: "Start demo" }, { demo: "Stop demo" }];
 var start = 0;
 
 function App() {
   const [buttonText, setButtonText] = useState(text[0].demo);
-  const [name, setName] = React.useState("");
+  const [name, setName] = useState("");
   const handleChange = (event) => {
     setName(event.target.value);
-    console.log(event.target.value);
   };
 
   return (
@@ -27,7 +27,8 @@ function App() {
         id="outlined-required "
         className="textf"
         value={name}
-        onKeyDown={(e) => {
+        onChange={(e) => {
+          emptyRedo();
           handleChange(e);
           saveCommand(e);
         }}
@@ -49,16 +50,34 @@ function App() {
       >
         {buttonText}
       </Button>
-      <span id="Gyroscope_z">0</span>
-      <Button
-        variant="contained"
-        size="large"
-        onClick={() => {
-          undoFun();
-        }}
-      >
-        Undo
-      </Button>
+      <span id="Gyroscope_y">0</span>
+      <Row>
+        <Button
+          variant="contained"
+          size="large"
+          style={{
+            margin: "20px 10px",
+          }}
+          onClick={() => {
+            setName(undoFun());
+          }}
+        >
+          Undo
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          style={{
+            margin: "20px 10px",
+          }}
+          size="large"
+          onClick={() => {
+            setName(redoFun());
+          }}
+        >
+          Redo
+        </Button>
+      </Row>
     </div>
   );
 }
